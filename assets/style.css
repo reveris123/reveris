@@ -1,0 +1,84 @@
+:root {
+  color-scheme: light;
+  font-family: Arial, Helvetica, sans-serif;
+  font-size: 16px;
+  color: #363636;
+  background: #fff;
+  --link: #1676b8;
+}
+* { box-sizing: border-box; }
+html { scroll-behavior: smooth; scroll-padding-top: 24px; }
+body { margin: 0; line-height: 1.6; }
+a { color: var(--link); }
+button, summary { font: inherit; }
+button { cursor: pointer; }
+button:focus-visible, a:focus-visible, summary:focus-visible, video:focus-visible {
+  outline: 3px solid var(--link); outline-offset: 4px;
+}
+[hidden] { display: none !important; }
+.skip-link { position: absolute; top: -80px; left: 16px; padding: 10px; background: #fff; z-index: 5; }
+.skip-link:focus { top: 10px; }
+main { max-width: 1200px; padding: 0 24px 64px; margin: auto; }
+.hero { padding: 64px 0 44px; text-align: center; }
+h1 { font-size: 46px; font-weight: 600; letter-spacing: -1.6px; line-height: 1.18; margin: 0 auto; max-width: 1120px; }
+h2 { font-size: 32px; font-weight: 600; line-height: 1.2; text-align: center; margin: 0; }
+.abstract { max-width: 960px; margin: auto; padding: 22px 0 28px; }
+#abstract-body { min-height: 54px; }
+.results { max-width: 1040px; margin: auto; padding-top: 10px; }
+.gallery-controls { display: flex; justify-content: center; margin: 20px 0 30px; }
+.quiet-button, .pair-toggle, .replay {
+  border: 1px solid #d8d8d8; background: #fff; border-radius: 20px;
+  padding: 6px 14px; color: #4a4a4a; font-size: 14px; min-height: 34px;
+}
+.quiet-button:hover, .pair-toggle:hover, .replay:hover { border-color: #969696; background: #f7f7f7; }
+.gallery { display: grid; grid-template-columns: minmax(0, 1fr); gap: 46px; }
+.case-card { min-width: 0; scroll-margin-top: 24px; }
+.case-header { display: grid; grid-template-columns: 1fr auto 1fr; align-items: center; gap: 16px; margin-bottom: 12px; }
+.case-heading { grid-column: 2; }
+.case-header h3 { font-size: 22px; font-weight: 600; text-align: center; line-height: 1.35; margin: 0; }
+.case-actions { justify-self: end; display: flex; align-items: center; gap: 7px; }
+.replay { padding: 1px 11px; font-size: 20px; }
+.pair-toggle { white-space: nowrap; }
+.video-pair { display: grid; grid-template-columns: minmax(0, 1fr) minmax(0, 1fr); gap: 16px; }
+.video-panel { margin: 0; min-width: 0; }
+.video-panel figcaption { text-align: center; font-size: 16px; padding: 3px 0 10px; color: #4a4a4a; }
+.video-panel.result figcaption { color: var(--link); }
+.step-label { font-size: 14px; margin-left: 7px; }
+.step-label::before { content: '('; }
+.step-label::after { content: ')'; }
+.video-panel video { display: block; width: 100%; aspect-ratio: var(--video-aspect, 832 / 480); object-fit: contain; border-radius: 9px; background: #111; }
+.video-error { color: #902323; background: #fff2f2; padding: 8px; font-size: 14px; }
+details { margin-top: 10px; }
+summary { width: fit-content; margin: auto; padding: 7px 12px; font-size: 14px; color: var(--link); cursor: pointer; }
+summary:hover { text-decoration: underline; }
+.prompts { display: grid; grid-template-columns: 1fr 1fr; gap: 28px; padding: 14px 4px 0; }
+.prompts p { margin: 0; color: #4a4a4a; font-size: 16px; line-height: 1.7; overflow-wrap: anywhere; }
+.prompt-label { display: block; font-size: 14px; font-weight: 600; color: #363636; margin-bottom: 6px; }
+@media (max-width: 850px) {
+  .hero { padding: 48px 0 34px; }
+  h1 { font-size: 36px; letter-spacing: -1px; }
+  .desktop-break { display: none; }
+  .case-header { grid-template-columns: 1fr; gap: 10px; }
+  .case-heading { grid-column: 1; }
+  .case-actions { justify-self: center; }
+  .prompts { grid-template-columns: 1fr; gap: 18px; }
+}
+@media (max-width: 480px) {
+  main { padding: 0 16px 40px; }
+  .hero { padding-top: 36px; }
+  h1 { font-size: 29px; letter-spacing: -.6px; line-height: 1.25; }
+  h2 { font-size: 27px; }
+  .abstract { padding-top: 8px; padding-bottom: 20px; }
+  #abstract-body { min-height: 36px; }
+  .gallery { gap: 30px; }
+  .video-pair { gap: 8px; }
+  .video-panel figcaption { font-size: 13px; }
+  .step-label { font-size: 12px; margin-left: 4px; }
+  .case-header h3 { font-size: 20px; }
+  .video-panel video { border-radius: 6px; }
+  .prompts p { font-size: 15px; }
+}
+@media (prefers-reduced-motion: reduce) {
+  html { scroll-behavior: auto; }
+  * { animation: none !important; transition: none !important; }
+}
